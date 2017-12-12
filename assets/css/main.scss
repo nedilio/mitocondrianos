@@ -1,0 +1,10 @@
+@mixin transitioned($object, $time){
+	-moz-transition:    $object $time;
+	-o-transition:      $object $time;
+	-webkit-transition: $object $time;
+	transition:         $object $time;
+}
+
+.linkName {
+	color:#000;
+}
