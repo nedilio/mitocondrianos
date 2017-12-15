@@ -9,7 +9,7 @@
 
         </div>
         <div class="col-xs-8">
-          <nuxt-link :to="{ path: '/mitocondriano/'+empleado.id+'?ejecutiva'}"><h3>{{empleado.nombre+' '+empleado.apellido}}</h3></nuxt-link>
+          <nuxt-link :to="{ path: '/mitocondriano/'+empleado.id+'?ejecutiva'}" class="linkName"><h3>{{empleado.nombre+' '+empleado.apellido}}</h3></nuxt-link>
             <p class="pFicha">{{empleado.email}}</p>
             <p class="pFicha">{{empleado.empresa}}</p>
             <p>{{empleado.direccion}}</p>
@@ -40,7 +40,9 @@ export default {
 }    
 </script>
 
-<style>
+<style lang="scss">
+@import '~assets/css/main.scss';
+
     .pFicha {
         margin-bottom: 0;
     }

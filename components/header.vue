@@ -11,30 +11,30 @@
             </button>
         </div>
       </div>
-        <div id="menu" class="menuLateral">
-            <button class="nav-toggle2" v-on:click="closeMenu()">
-                <span class="glyphicon glyphicon-remove"></span>
-            </button>
-            <ul>
-                <li>
-                <nuxt-link to="/ejecutivas" ><span v-on:click="closeMenu()">Ejecutivas de Cuentas</span></nuxt-link>
-
-                </li>
-                <li>
-
-                    <nuxt-link to="/frontend" ><span v-on:click="closeMenu()">Frontend</span></nuxt-link>
-
-                </li>
-            </ul>
-
-        </div>
-        
- 
+      <div id="menu" class="menuLateral">
+          <button class="nav-toggle2" v-on:click="closeMenu()">
+              <span class="glyphicon glyphicon-remove"></span>
+          </button>
+          <ul>
+              <li v-for="item in menuItems" v-bind:key="menuItems.title">
+                <nuxt-link :to="{ path: item.link }" ><span v-on:click="closeMenu()">{{item.title}}</span></nuxt-link>
+              </li>
+          </ul>
+      </div>
   </header>
 </template>
 <script>
 
 export default {
+
+  data: () => ({
+      menuItems: [
+        { title: 'Ejecutivas de Cuentas', link:'/ejecutivas' },
+        { title: 'FrontEnd', link:'/frontend' },
+        { title: 'Diseño', link:'/'},
+        { title: 'Desarrollo', link:'/'},
+      ]
+  }),
 
   methods: {
     openMenu: function() {
@@ -115,6 +115,10 @@ export default {
   .menuLateral ul li a {
       color: #fff;
       font-size: 18px;
+  }
+  ul {
+    list-style-type: none;
+    padding: 10px;
   }
 
 </style>

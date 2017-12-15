@@ -39,7 +39,8 @@ export default {
 }    
 </script>
 
-<style>
+<style lang="scss">
+@import '~assets/css/main.scss';
     .pFicha {
         margin-bottom: 0;
     }
