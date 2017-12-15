@@ -26,14 +26,10 @@ export default {
     data: () => ({
     pageTitle: 'Frontend',
   }),
-    async asyncData({ req, params }) {
-        // We can return a Promise instead of calling the callback
-        return axios.get('http://pruebas.piloto.cl/JSONs/mitocondrianos.json')
-        .then((res) => {
-            return { empleados: res.data.frontend.integrantes }
-        }).catch(function (error) {
-            console.log(error);
-        })
+ computed: {
+      empleados () {
+        return this.$store.state.empleados.frontend
+      }
     }
   
 }    
