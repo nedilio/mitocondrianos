@@ -1,7 +1,7 @@
 <template>
 <div class="container" id="mitocondrianos">
     <div class="row">
-        <h2>{{pageTitle}}</h2>
+        <h2>{{title}}</h2>
     </div>
     <div class="row" v-for="empleado in empleados" v-bind:key="empleado.id">
         <div class="col-xs-4">
@@ -23,12 +23,15 @@
 <script>
 import axios from 'axios'
 export default {
-    data: () => ({
-    pageTitle: 'Frontend',
-  }),
+//     data: () => ({
+//     pageTitle: title
+//   }),
  computed: {
       empleados () {
-        return this.$store.state.empleados.frontend
+        return this.$store.state.empleados.frontend.integrantes
+      },
+      title () {
+          return this.$store.state.empleados.frontend.nombre
       }
     }
   

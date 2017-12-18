@@ -12,16 +12,14 @@ const datosEmpleados = () => {
       }
     },
     actions: {
-        async nuxtServerInit({commit}, {req}) {
-            const  data  =  axios.get('/mitocondrianos.json')
-            .then((res) => {
-                return { res }
-            }).catch(function (error) {
-                console.log(error);
-            })
-            // const  data  =  0;
-            commit('setEmpleados', data )
-        }
+        async nuxtServerInit({ commit },{req}) {
+            const res = await axios.get('http://pruebas.piloto.cl/JSONs/mitocondrianos.json')
+            // const res =0
+            commit('setEmpleados', res.data)
+        },
+
+
+      
     }
   })
 }
