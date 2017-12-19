@@ -1,7 +1,7 @@
 <template>
 <div class="container" id="mitocondrianos">
     <div class="row">
-        <h2>{{pageTitle}}</h2>
+        <h2>{{title}}</h2>
     </div>
     <div class="row" v-for="empleado in empleados" v-bind:key="empleado.id">
         <div class="col-xs-4">
@@ -22,28 +22,16 @@
 
 
 <script>
-import axios from 'axios'
 export default {
-    async asyncData({ req, params }) {
-        // We can return a Promise instead of calling the callback
-        return axios.get('http://pruebas.piloto.cl/JSONs/mitocondrianos.json')
-        .then((res) => {
-            return { empleados: res.data.ejecutivas_de_cuentas.integrantes }
-        }).catch(function (error) {
-            console.log(error);
-        })
-    },
-    data: () => ({
-    pageTitle: 'Ejecutivas de Cuentas',
-  }),
-  
-}    
-</script>
 
-<style lang="scss">
-@import '~assets/css/main.scss';
-
-    .pFicha {
-        margin-bottom: 0;
+ computed: {
+      empleados () {
+        return this.$store.state.empleados.ejecutivas_de_cuentas.integrantes
+      },
+      title () {
+          return this.$store.state.empleados.ejecutivas_de_cuentas.nombre
+      }
     }
-</style>
+  
+}      
+</script>

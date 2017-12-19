@@ -4,22 +4,24 @@ import axios from 'axios'
 const datosEmpleados = () => {
   return new Vuex.Store({
     state: {
-      empleados: []
+      empleados: [],
+    //   frontend:[]
     },
     mutations: {
         setEmpleados: function (state, data) {
             state.empleados = data
-      }
+        },
+        // setFrontend: function (state, data) {
+        //     state.frontend = data
+        // }
     },
     actions: {
         async nuxtServerInit({ commit },{req}) {
             const res = await axios.get('http://pruebas.piloto.cl/JSONs/mitocondrianos.json')
-            // const res =0
             commit('setEmpleados', res.data)
-        },
-
-
-      
+            console.log('llenando datos')
+            // commit('setFrontend', res.data.frontend.empleados)
+        }
     }
   })
 }

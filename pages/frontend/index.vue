@@ -21,11 +21,8 @@
 
 
 <script>
-import axios from 'axios'
 export default {
-//     data: () => ({
-//     pageTitle: title
-//   }),
+
  computed: {
       empleados () {
         return this.$store.state.empleados.frontend.integrantes
@@ -37,10 +34,3 @@ export default {
   
 }    
 </script>
-
-<style lang="scss">
-@import '~assets/css/main.scss';
-    .pFicha {
-        margin-bottom: 0;
-    }
-</style>
