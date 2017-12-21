@@ -70,10 +70,6 @@ export default {
       empleado () {
            var path = $nuxt.$route.fullPath.split('?')[1]
            var i = $nuxt.$route.path.split('/')[2]
-           console.log(i)
-
-        //    console.log (path)
-        //    var i = path.split('?')[1]
            if (path == 'ejecutiva') {
             var traer = 'ejecutivas_de_cuentas'
         } else if (path == 'frontend') {

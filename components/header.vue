@@ -2,7 +2,8 @@
   <header>
       <div class="row">
         <div class="col-xs-12">
-            <h3>Mitocondria</h3>
+          <nuxt-link to="/"><h3>Mitocondria</h3></nuxt-link>
+            
             <button class="nav-toggle" v-on:click="openMenu()">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -27,14 +28,7 @@
 
 export default {
 
-  data: () => ({
-      menuItems: [
-        { title: 'Ejecutivas de Cuentas', link:'/ejecutivas' },
-        { title: 'FrontEnd', link:'/frontend' },
-        { title: 'Diseño', link:'/'},
-        { title: 'Desarrollo', link:'/'},
-      ]
-  }),
+
 
   methods: {
     openMenu: function() {
@@ -44,6 +38,20 @@ export default {
       document.getElementById("menu").style.right="-100%";
     },
   },
+  computed : {
+    menuItems () {
+          const objeto = this.$store.state.empleados
+          const keys = Object.keys(objeto)
+          const menuLinks = [];
+
+          keys.forEach(function(item){
+            const par = {title: objeto[item].nombre, link : '/'+item.split('_')[0] }
+            menuLinks.push(par)
+            // console.log(objeto)
+          });
+          return menuLinks
+      }
+  }
   
 };
 </script>
