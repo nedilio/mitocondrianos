@@ -5,7 +5,5 @@
 </template>
 
 <style>
-.VueToNuxtLogo {
 
-}
 </style>

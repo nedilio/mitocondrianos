@@ -1,16 +1,14 @@
 <template>
   <section class="container">
-    <div>
-      <!-- <logo/> -->
+    <div class="text-center">
       <h1 class="title">
-        mitocondrianos
-        <!-- {{menuTitles}} -->
+        Mitocondrianos
       </h1>
-          <ul>
-              <li v-for="item in menuItems" v-bind:key="menuItems.title">
-                <nuxt-link :to="{ path: item.link }" ><span v-on:click="closeMenu()">{{item.title}}</span></nuxt-link>
-              </li>
-          </ul>
+        <ul>
+            <li v-for="item in menuItems" v-bind:key="menuItems.title">
+              <nuxt-link :to="{ path: item.link }" ><span >{{item.title}}</span></nuxt-link>
+            </li>
+        </ul>
     </div>
   </section>
 </template>

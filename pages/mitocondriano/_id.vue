@@ -68,8 +68,8 @@ export default {
 
     computed: {
       empleado () {
-           var path = $nuxt.$route.fullPath.split('?')[1]
-           var i = $nuxt.$route.path.split('/')[2]
+           var path = this.$route.fullPath.split('?')[1]
+           var i = this.$route.path.split('/')[2]
            if (path == 'ejecutiva') {
             var traer = 'ejecutivas_de_cuentas'
         } else if (path == 'frontend') {
