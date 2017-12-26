@@ -18,7 +18,7 @@
           </button>
           <ul>
               <li v-for="item in menuItems" v-bind:key="menuItems.title">
-                <nuxt-link :to="{ path: item.link }" ><span v-on:click="closeMenu()">{{item.title}}</span></nuxt-link>
+                <nuxt-link :to="{ path: item.link }" ><i :class="'fa '+item.icon"></i><span v-on:click="closeMenu()"> {{item.title}}</span></nuxt-link>
               </li>
           </ul>
       </div>
@@ -45,7 +45,7 @@ export default {
           const menuLinks = [];
 
           keys.forEach(function(item){
-            const par = {title: objeto[item].nombre, link : '/'+item.split('_')[0] }
+            const par = {title: objeto[item].nombre, link : '/'+item.split('_')[0], icon:'fa-desktop' }
             menuLinks.push(par)
             // console.log(objeto)
           });

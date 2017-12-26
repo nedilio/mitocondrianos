@@ -1,6 +1,10 @@
 import Vuex from 'vuex'
 import axios from 'axios'
 
+export const api = axios.create({
+    baseURL: '/static'
+  })
+
 const datosEmpleados = () => {
   return new Vuex.Store({
     state: {
@@ -17,10 +21,15 @@ const datosEmpleados = () => {
     },
     actions: {
         async nuxtServerInit({ commit },{req}) {
-            const res = await axios.get('http://pruebas.piloto.cl/JSONs/mitocondrianos.json')
-            commit('setEmpleados', res.data)
-            console.log('llenando datos')
-            // commit('setFrontend', res.data.frontend.empleados)
+            await axios.get('http://pruebas.piloto.cl/JSONs/mitocondrianos.json')
+                .then((res) => {
+                    commit('setEmpleados', res.data)
+                    console.log(res.data)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+
         }
     }
   })
